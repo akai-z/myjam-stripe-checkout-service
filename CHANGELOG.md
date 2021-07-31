@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - Bump Airtable JS library version number to `0.11.1`.
+- Bump `lodash` version number to `4.17.21`.
 
 ## [0.9.0] - 2021-04-25
 ### Added
