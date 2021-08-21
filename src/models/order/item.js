@@ -54,6 +54,14 @@ class OrderItem extends DataObject {
     this._accept_substitute = acceptSubstitute == 1 || acceptSubstitute === 'true' ? true : false
   }
 
+  get options() {
+    return this._options
+  }
+
+  set options(options) {
+    this._options = options
+  }
+
   init(item) {
     const product = item.price.product
 
@@ -63,6 +71,7 @@ class OrderItem extends DataObject {
     this.price = item.price.unit_amount
     this.qty = item.quantity
     this.acceptSubstitute = product.metadata.accept_substitute
+    this.options = product.metadata.options
   }
 }
 

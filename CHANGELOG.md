@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - `accept_substitute` data to order items.
+- `options` data to order items.
 
 ### Changed
 - Bump Airtable JS library version number to `0.11.1`.
