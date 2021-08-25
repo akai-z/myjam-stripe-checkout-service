@@ -1,9 +1,15 @@
 const DataObject = rootRequire('models/data-object')
 
+const airtableOrderView = 'Orders'
+
 class Order extends DataObject {
   constructor(checkoutSession, promotionCode) {
     super()
     this.init(checkoutSession, promotionCode)
+  }
+
+  static get airtableOrderView() {
+    return airtableOrderView
   }
 
   get paymentIntentId() {

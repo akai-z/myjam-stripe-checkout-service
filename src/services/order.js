@@ -16,7 +16,7 @@ async function create(checkoutSessionId) {
   const promotionCode = await promotionCodePromise
 
   const orderData = new Order(checkout, promotionCode).data
-  const completedOrder = await airtable.createRecord(process.env.AIRTABLE_ORDER_VIEW, orderData)
+  const completedOrder = await airtable.createRecord(Order.airtableOrderView, orderData)
 
   await addItems(items, completedOrder.id)
 }
