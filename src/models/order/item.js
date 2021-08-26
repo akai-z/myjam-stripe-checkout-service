@@ -1,9 +1,15 @@
 const DataObject = rootRequire('models/data-object')
 
+const airtableView = 'Order Items'
+
 class OrderItem extends DataObject {
   constructor(item) {
     super()
     this.init(item)
+  }
+
+  static get airtableView() {
+    return airtableView
   }
 
   get name() {

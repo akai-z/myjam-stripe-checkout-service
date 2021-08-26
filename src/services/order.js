@@ -35,7 +35,7 @@ function lineItems(items) {
 
 async function addItems(items, orderId) {
   items.forEach(item => { item.fields['order_id'] = [ orderId ] })
-  await airtable.createRecord(process.env.AIRTABLE_ORDER_ITEMS_VIEW, items)
+  await airtable.createRecord(OrderItem.airtableView, items)
 }
 
 module.exports = {

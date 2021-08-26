@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Bump `path-parse` version number to `1.0.7`.
 - Bump `hosted-git-info` version number to `2.8.9`.
 - Replace Airtable order view environment variable with a hardcoded value.
+- Replace Airtable order items view environment variable with a hardcoded value.
 
 ## [0.9.0] - 2021-04-25
 ### Added
