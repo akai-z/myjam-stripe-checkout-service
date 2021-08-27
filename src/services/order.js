@@ -16,7 +16,7 @@ async function create(checkoutSessionId) {
   const promotionCode = await promotionCodePromise
 
   const orderData = new Order(checkout, promotionCode).data
-  const completedOrder = await airtable.createRecord(process.env.AIRTABLE_ORDER_VIEW, orderData)
+  const completedOrder = await airtable.createRecord(Order.airtableView, orderData)
 
   await addItems(items, completedOrder.id)
 }
@@ -35,7 +35,7 @@ function lineItems(items) {
 
 async function addItems(items, orderId) {
   items.forEach(item => { item.fields['order_id'] = [ orderId ] })
-  await airtable.createRecord(process.env.AIRTABLE_ORDER_ITEMS_VIEW, items)
+  await airtable.createRecord(OrderItem.airtableView, items)
 }
 
 module.exports = {
