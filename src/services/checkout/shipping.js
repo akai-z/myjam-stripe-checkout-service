@@ -13,7 +13,7 @@ async function shippingRateIds(lineItemsData) {
 }
 
 function isEnabled() {
-  return process.env.SHIPPING_ENABLED === 'true'
+  return process.env.SHIPPING_ENABLED == 1
     && (process.env.STRIPE_SHIPPING_FEE_ID || process.env.STRIPE_FREE_SHIPPING_ID)
 }
 
