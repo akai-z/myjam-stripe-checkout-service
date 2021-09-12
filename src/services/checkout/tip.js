@@ -5,7 +5,7 @@ function amount(amount) {
 }
 
 function isEnabled() {
-  return process.env.TIPPING_ENABLED == 1
+  return !!process.env.TIPPING_ENABLED
 }
 
 function isTipProduct(productType) {

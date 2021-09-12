@@ -5,7 +5,7 @@ const Order = rootRequire('models/order')
 const OrderItem = rootRequire('models/order/item')
 
 async function create(checkoutSessionId) {
-  if (process.env.ORDER_CREATE_ENABLED != 1) {
+  if (!!!process.env.ORDER_CREATE_ENABLED) {
     return
   }
 
