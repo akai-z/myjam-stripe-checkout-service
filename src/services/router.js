@@ -3,10 +3,11 @@ const fs = require('fs')
 const cors = require('cors')
 
 const router = express()
+const port = process.env.PORT || 80
 
 function run() {
   init()
-  router.listen(process.env.PORT)
+  router.listen(port)
 }
 
 function init() {
