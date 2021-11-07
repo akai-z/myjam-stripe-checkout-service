@@ -58,6 +58,9 @@ function checkoutSessionCreationPayload(lineItems, metadata = {}, shippingRates 
   const paymentMethodTypes = process.env.PAYMENT_METHOD_TYPES
     ? process.env.PAYMENT_METHOD_TYPES.split(',') : 'card'
 
+  const shippingAddressAllowedCountries = process.env.SHIPPING_ADDRESS_ALLOWED_COUNTRIES
+    ? process.env.SHIPPING_ADDRESS_ALLOWED_COUNTRIES.split(',') : 'GB'
+
   const payload = {
     mode: process.env.CHECKOUT_SESSION_MODE || 'payment',
     payment_method_types: paymentMethodTypes,
@@ -66,7 +69,7 @@ function checkoutSessionCreationPayload(lineItems, metadata = {}, shippingRates 
       capture_method: process.env.PAYMENT_INTENT_CAPTURE_METHOD || 'manual',
     },
     shipping_address_collection: {
-      allowed_countries: process.env.SHIPPING_ADDRESS_ALLOWED_COUNTRIES.split(',')
+      allowed_countries: shippingAddressAllowedCountries
     },
     allow_promotion_codes: !!process.env.ALLOW_PROMOTION_CODES ? true : false,
     metadata: metadata || {},
