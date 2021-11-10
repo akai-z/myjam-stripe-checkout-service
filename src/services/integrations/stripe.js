@@ -61,6 +61,8 @@ function checkoutSessionCreationPayload(lineItems, metadata = {}, shippingRates 
   const shippingAddressAllowedCountries = process.env.SHIPPING_ADDRESS_ALLOWED_COUNTRIES
     ? process.env.SHIPPING_ADDRESS_ALLOWED_COUNTRIES.split(',') : 'GB'
 
+  const cancelUrlPath = process.env.CANCEL_URL_PATH ? `/${process.env.CANCEL_URL_PATH}` : ''
+
   const payload = {
     mode: process.env.CHECKOUT_SESSION_MODE || 'payment',
     payment_method_types: paymentMethodTypes,
@@ -74,7 +76,7 @@ function checkoutSessionCreationPayload(lineItems, metadata = {}, shippingRates 
     allow_promotion_codes: !!process.env.ALLOW_PROMOTION_CODES ? true : false,
     metadata: metadata || {},
     success_url: `${process.env.DOMAIN}/${process.env.SUCCESS_URL_PATH}`,
-    cancel_url: `${process.env.DOMAIN}/${process.env.CANCEL_URL_PATH}`
+    cancel_url: `${process.env.DOMAIN}${cancelUrlPath}`
   }
 
   if (payload.mode === 'payment') {
