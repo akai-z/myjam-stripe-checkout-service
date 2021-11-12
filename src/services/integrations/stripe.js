@@ -62,8 +62,12 @@ function checkoutSessionCreationPayload(lineItems, metadata = {}, shippingRates 
     ? process.env.SHIPPING_ADDRESS_ALLOWED_COUNTRIES.split(',') : 'GB'
 
   const successUrlPath = process.env.SUCCESS_URL_PATH ? `/${process.env.SUCCESS_URL_PATH}` : ''
-
   const cancelUrlPath = process.env.CANCEL_URL_PATH ? `/${process.env.CANCEL_URL_PATH}` : ''
+  let allowPromotionCodes = true
+
+  if (typeof process.env.ALLOW_PROMOTION_CODES !== 'undefined') {
+    allowPromotionCodes = !!process.env.ALLOW_PROMOTION_CODES ? true : false
+  }
 
   const payload = {
     mode: process.env.CHECKOUT_SESSION_MODE || 'payment',
@@ -75,7 +79,7 @@ function checkoutSessionCreationPayload(lineItems, metadata = {}, shippingRates 
     shipping_address_collection: {
       allowed_countries: shippingAddressAllowedCountries
     },
-    allow_promotion_codes: !!process.env.ALLOW_PROMOTION_CODES ? true : false,
+    allow_promotion_codes: allowPromotionCodes,
     metadata: metadata || {},
     success_url: `${process.env.DOMAIN}${successUrlPath}`,
     cancel_url: `${process.env.DOMAIN}${cancelUrlPath}`
