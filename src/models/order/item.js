@@ -52,12 +52,12 @@ class OrderItem extends DataObject {
     this._qty = qty
   }
 
-  get acceptSubstitute() {
-    return this._accept_substitute
+  get noSubstitute() {
+    return this._no_substitute
   }
 
-  set acceptSubstitute(acceptSubstitute) {
-    this._accept_substitute = acceptSubstitute == 1 || acceptSubstitute === 'true' ? true : false
+  set noSubstitute(noSubstitute) {
+    this._no_substitute = noSubstitute == 1 || noSubstitute === 'true' ? true : false
   }
 
   get options() {
@@ -76,7 +76,7 @@ class OrderItem extends DataObject {
     this.image = product.images
     this.price = item.price.unit_amount
     this.qty = item.quantity
-    this.acceptSubstitute = product.metadata.accept_substitute
+    this.noSubstitute = product.metadata.no_substitute
     this.options = product.metadata.options
   }
 }
