@@ -1,3 +1,5 @@
+'use strict'
+
 const CheckoutSession = rootRequire('models/checkout/session')
 const stripe = rootRequire('services/integrations/stripe')
 const lineItems = rootRequire('services/checkout/line-items')

@@ -1,3 +1,5 @@
+'use strict'
+
 const DataObject = rootRequire('models/data-object')
 
 const airtableView = 'Orders'

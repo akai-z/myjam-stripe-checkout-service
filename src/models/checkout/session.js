@@ -1,3 +1,5 @@
+'use strict'
+
 const stripe = rootRequire('services/integrations/stripe')
 
 class CheckoutSession {

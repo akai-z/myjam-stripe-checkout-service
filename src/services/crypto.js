@@ -1,3 +1,5 @@
+'use strict'
+
 const aes = require('aes-js')
 const argon2 = require('argon2')
 const crypto = require('crypto')
@@ -28,7 +30,7 @@ async function decrypt(encryptedData) {
   const [encryptedBytes, textMac, salt, ctrCounter] = Buffer.from(encryptedData, 'base64')
     .toString()
     .split(':')
-    .map(item => Buffer.from(item, 'hex'))
+    .map((item) => Buffer.from(item, 'hex'))
 
   const key = await ctrKey(salt)
   const decryptedBytes = ctr(key, ctrCounter).decrypt(encryptedBytes)

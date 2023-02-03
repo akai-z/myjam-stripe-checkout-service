@@ -1,3 +1,5 @@
+'use strict'
+
 const stripe = rootRequire('services/integrations/stripe')
 const order = rootRequire('services/order')
 const HttpError = rootRequire('services/error/http')

@@ -1,3 +1,5 @@
+'use strict'
+
 class HttpError extends Error {
   constructor(code, ...params) {
     super(...params)

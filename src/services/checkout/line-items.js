@@ -1,3 +1,5 @@
+'use strict'
+
 const tip = rootRequire('services/checkout/tip')
 const crypto = rootRequire('services/crypto')
 
@@ -35,10 +37,7 @@ async function calculateSubtotal(lineItems) {
   for (const lineItem in lineItems) {
     item = lineItems[lineItem]
 
-    item.price_data.unit_amount = await lineItemAmount(
-      item.price_data.unit_amount,
-      item.product_id
-    )
+    item.price_data.unit_amount = await lineItemAmount(item.price_data.unit_amount, item.product_id)
 
     subtotal += item.price_data.unit_amount * item.quantity
   }
