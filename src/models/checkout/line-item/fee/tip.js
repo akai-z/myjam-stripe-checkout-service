@@ -1,3 +1,5 @@
+'use strict'
+
 class TipLineItem {
   static get type() {
     return 'tip_amount'

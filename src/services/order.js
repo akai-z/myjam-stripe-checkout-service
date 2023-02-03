@@ -1,3 +1,5 @@
+'use strict'
+
 const airtable = rootRequire('services/integrations/airtable')
 const checkoutSession = rootRequire('services/checkout/session')
 const tip = rootRequire('services/checkout/tip')
@@ -24,7 +26,7 @@ async function create(checkoutSessionId) {
 function lineItems(items) {
   const lineItems = []
 
-  items.forEach(item => {
+  items.forEach((item) => {
     if (!tip.isTipProduct(item.price.product.metadata.type)) {
       lineItems.push({ fields: new OrderItem(item).data })
     }
@@ -34,7 +36,9 @@ function lineItems(items) {
 }
 
 async function addItems(items, orderId) {
-  items.forEach(item => { item.fields['order_id'] = [ orderId ] })
+  items.forEach((item) => {
+    item.fields['order_id'] = [orderId]
+  })
   await airtable.createRecord(OrderItem.airtableView, items)
 }
 

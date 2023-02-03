@@ -1,3 +1,5 @@
+'use strict'
+
 const checkoutSession = rootRequire('services/checkout/session')
 
 exports.name = 'session'

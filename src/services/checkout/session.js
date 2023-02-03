@@ -1,3 +1,5 @@
+'use strict'
+
 const NewSession = rootRequire('models/checkout/session/new')
 const ExistingSession = rootRequire('models/checkout/session/existing')
 

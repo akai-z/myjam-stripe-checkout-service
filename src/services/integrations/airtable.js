@@ -1,3 +1,5 @@
+'use strict'
+
 const airtable = require('airtable')
 
 const bulkActionRecordsLimit = 10
@@ -42,7 +44,9 @@ function isBulkActionRecordsAboveLimit(data) {
 }
 
 function setBulkActionChunkDelay() {
-  return new Promise(resolve => { setTimeout(resolve, bulkActionChunkDelay) })
+  return new Promise((resolve) => {
+    setTimeout(resolve, bulkActionChunkDelay)
+  })
 }
 
 function base(table) {

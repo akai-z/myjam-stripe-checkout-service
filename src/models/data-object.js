@@ -1,8 +1,10 @@
+'use strict'
+
 class DataObject {
   get data() {
     const data = {}
 
-    Object.getOwnPropertyNames(this).forEach(property => {
+    Object.getOwnPropertyNames(this).forEach((property) => {
       data[property.replace(/^_/, '')] = this[property]
     })
 

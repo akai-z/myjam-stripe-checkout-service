@@ -1,3 +1,5 @@
+'use strict'
+
 const TipProduct = rootRequire('models/checkout/line-item/fee/tip')
 
 function amount(amount) {

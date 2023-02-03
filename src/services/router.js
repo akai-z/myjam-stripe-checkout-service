@@ -1,3 +1,5 @@
+'use strict'
+
 const express = require('express')
 const fs = require('fs')
 const cors = require('cors')
@@ -17,7 +19,9 @@ function init() {
 }
 
 function setRoutes() {
-  fs.readdirSync(srcPath('routes')).forEach(route => { setRoute(route) })
+  fs.readdirSync(srcPath('routes')).forEach((route) => {
+    setRoute(route)
+  })
 }
 
 function setRoute(routeName) {
